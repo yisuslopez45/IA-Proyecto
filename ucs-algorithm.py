@@ -44,7 +44,6 @@ def uniform_cost_search(graph, start, goal):
                 parent[neighbor] = node
                 frontier.append((new_cost, neighbor))
     return None, None
-
 graph = {
     0.0: [(0.1, 4)],
     0.1: [(0.0, 2), (1.1,3) , (0.2, 6)],
@@ -66,6 +65,9 @@ graph = {
     4.4: [(4.3, 2)],
     3.3: [(2.3, 3) , (4.3, 4)]
 }
+
+
+
 
 # Ejemplo: buscar de S a X
 path, cost = uniform_cost_search(graph, 0.0, 4.4)
