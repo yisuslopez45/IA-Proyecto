@@ -1,10 +1,10 @@
-laberinto = [
-    [1, 0, 1, 1, 1],
-    [1, 1, 1, 0, 1],
-    [1, 0, 1, 0, 1],
-    [1, 0, 1, 1, 1],
-    [1, 1, 1, 0, 1],
-]
+# laberinto = [
+#     [1, 0, 1, 1, 1],
+#     [1, 1, 1, 0, 1],
+#     [1, 0, 1, 0, 1],
+#     [1, 0, 1, 1, 1],
+#     [1, 1, 1, 0, 1],
+# ]
 
 def map_grafo(matriz):
     lenCol = len(matriz)
@@ -33,4 +33,4 @@ def map_grafo(matriz):
                 grafo[index] = vecinos
     return grafo
 
-print(map_grafo(laberinto))
+# print(map_grafo(laberinto))
