@@ -9,10 +9,8 @@ maxV = 23
 
 # Crear matriz (lista de strings)
 A = []
-
-for _ in range(1, maxV - 1):
-    A.append(" " + WALL * (maxH - 2) + " ")
-
+for _ in range(maxV):
+    A.append(WALL * (maxH))
 
 # Posición inicial
 V, H = 13, 3
