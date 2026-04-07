@@ -26,7 +26,7 @@ def main(stdscr):
     #The laberinth is initially filled with the border character (space) and the wall character (#)
     #The laberinth has a fixed size in each execution
     maxH = 35 
-    maxV = 35
+    maxV = 23
     A = []
     A.append("                                   ")
     for i in range (1,maxV-1,1):
@@ -45,7 +45,6 @@ def main(stdscr):
     #We print the laberinth on the screen for the first time
     for i in range (0,maxV-1,1):
         stdscr.addstr(i,0,A[i], curses.color_pair(1))
-        
     #Function to count the number of open paths from a given position
     def numCaminos():
         nonlocal V
