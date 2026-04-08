@@ -1,5 +1,5 @@
 import random
-
+import copy
 #########################################################
 # CREDITOS ALGORITMO PARA GENERAR LABERINTO
 # REPOSITORIO: https://github.com/gittoni09/laberinto
@@ -131,7 +131,7 @@ def randomLaberinto():
 
 def addCostosLaberinto(laberinto):
     nCasillasConPeso = 30
-    laberintoPesos = laberinto
+    laberintoPesos = copy.deepcopy(laberinto)
     while nCasillasConPeso > 0:
         costo = random.randint(2,10)
         i = random.randint(1,25)
@@ -169,14 +169,15 @@ def imprimirLaberinto(laberinto):
     print("")
 
 def imprimirSolucion(laberinto, camino):
+    laberintoWithSolution = copy.deepcopy(laberinto)
     for i in range(len(camino)): 
         posicion = str(camino[i]).split(".")
         x = int(posicion[0])
         y = int(posicion[1])
-        if laberinto[x][y] == 1:
-            laberinto[x][y] = 15
+        if laberintoWithSolution[x][y] == 1:
+            laberintoWithSolution[x][y] = 15
 
-    imprimirLaberinto(laberinto)    
+    imprimirLaberinto(laberintoWithSolution)    
 
 
 
