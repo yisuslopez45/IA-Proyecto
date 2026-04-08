@@ -125,7 +125,7 @@ def randomLaberinto():
     matriz = construirLaberinto(29, 29)
     formatMatriz = parsearMatriz(matriz)
     if(formatMatriz[0][0] == 0 or formatMatriz[26][26] == 0):
-        return randomLaberinto(29, 29)
+        return randomLaberinto()
     return formatMatriz
 
 
