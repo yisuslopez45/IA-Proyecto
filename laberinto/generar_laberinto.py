@@ -1,5 +1,13 @@
 import random
 
+#########################################################
+# CREDITOS ALGORITMO PARA GENERAR LABERINTO
+# REPOSITORIO: https://github.com/gittoni09/laberinto
+# Create, print and resolve a console based laberinth
+# python3 laberinto.py 
+# 2020 - Antonio Royo Moraga
+#########################################################
+
 def parsearMatriz(matriz):
     MATRIZ = []
     for i  in range(len(matriz)):
@@ -113,12 +121,66 @@ def construirLaberinto(filas, columnas):
                     avanzado = True
     return MATRIZ
 
-def generar(filas, columnas):
-    matriz = construirLaberinto(filas, columnas)
+def randomLaberinto():
+    matriz = construirLaberinto(29, 29)
     formatMatriz = parsearMatriz(matriz)
+    if(formatMatriz[0][0] == 0 or formatMatriz[26][26] == 0):
+        return randomLaberinto(29, 29)
     return formatMatriz
 
-# matriz = generar(29, 29)
 
-# for i in range(len(matriz)):
-#     print(matriz[i])
+def addCostosLaberinto(laberinto):
+    nCasillasConPeso = 30
+    laberintoPesos = laberinto
+    while nCasillasConPeso > 0:
+        costo = random.randint(2,10)
+        i = random.randint(1,25)
+        j = random.randint(1,25)
+        if laberintoPesos[i][j] == 1:
+            laberintoPesos[i][j] = costo
+            nCasillasConPeso -= 1
+    
+    return laberintoPesos
+
+iconsValsLaberinto = {
+    0 : '🧱',
+    1 : '⬛',
+    2 : '🦔',
+    3 : '🧨',
+    4 : '🐊',
+    5 : '🐌',
+    6 : '🦧',
+    7 : '🐛',
+    8 : '🐧',
+    9 : '🦥',
+    10 : '🐢',
+    15 : '🟩'
+}
+
+def imprimirLaberinto(laberinto):
+    for i in range(len(laberinto)):
+        fila = []
+        for j in range(len(laberinto[i])):
+            if i == 26 and j == 26:
+                fila.append('🏁')
+            else:
+                fila.append(iconsValsLaberinto[laberinto[i][j]])
+        print(" ".join(fila))
+    print("")
+
+def imprimirSolucion(laberinto, camino):
+    for i in range(len(camino)): 
+        posicion = str(camino[i]).split(".")
+        x = int(posicion[0])
+        y = int(posicion[1])
+        if laberinto[x][y] == 1:
+            laberinto[x][y] = 15
+
+    imprimirLaberinto(laberinto)    
+
+
+
+
+
+# maze = addCostosLaberinto(randomLaberinto())
+# imprimirLaberinto(maze)
