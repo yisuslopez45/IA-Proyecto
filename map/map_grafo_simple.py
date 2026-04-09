@@ -16,19 +16,19 @@ def map_grafo(matriz):
         for j in range(columnas):
             if matriz[j][i] == 1:
                 vecinos = []
-                nodo = float(f"{j}.{i}")
+                nodo = f"{j}.{i}"
                 # ARRIBA
                 if i - 1 >= 0 and matriz[j][i - 1] != 0:
-                    vecinos.append( float(f"{j}.{i-1}"))
+                    vecinos.append(f"{j}.{i-1}")
                 # ABAJO
                 if i + 1 < columnas and matriz[j][i + 1] != 0:
-                    vecinos.append(float(f"{j}.{i+1}"))
+                    vecinos.append(f"{j}.{i+1}")
                 # IZQUIERDA
                 if j - 1 >= 0 and matriz[j - 1][i] != 0:
-                    vecinos.append(float(f"{j-1}.{i}"))
+                    vecinos.append(f"{j-1}.{i}")
                 # DERECHA
                 if j + 1 < filas and matriz[j + 1][i] != 0:
-                    vecinos.append(float(f"{j+1}.{i}"))
+                    vecinos.append(f"{j+1}.{i}")
 
                 grafo[nodo] = vecinos
     return grafo
