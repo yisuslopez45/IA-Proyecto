@@ -4,7 +4,7 @@ def dfs_camino(grafo, inicio, objetivo):
     visitados = set()            # conjunto de nodos visitados
     predecesores = {inicio: None}  # diccionario de predecesores
     while pila:
-        print("-----------------------------------------------------")
+        # print("-----------------------------------------------------")
         # print("pila",pila)
         nodo = pila.pop()  # se saca el último
         # print("nodo analizado=",nodo)

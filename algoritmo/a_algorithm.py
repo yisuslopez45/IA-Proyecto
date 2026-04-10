@@ -58,8 +58,8 @@ def a_star(  graph , heuristica  , start, goal):
 
     while nodos_abiertos:
         current = min(nodos_abiertos, key=lambda x: f[x])
-        print("#### CURRENT ####", current)
-        print("\n")
+        # print("#### CURRENT ####", current)
+        # print("\n")
         if current == goal:
             path = []
             while current in procede_del_nodo:
