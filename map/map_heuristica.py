@@ -15,7 +15,7 @@ def calc_heuristica(matriz, objetivo):
     for i in range(filas):
         for j in range(columnas):
             if matriz[j][i] == 1:
-                nodo = float(f"{j}.{i}")
+                nodo = f"{j}.{i}"
                 x_objectivo, y_objetivo = str(objetivo).split(".")
 
                 x_objectivo = int(x_objectivo)

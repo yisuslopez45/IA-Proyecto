@@ -15,21 +15,21 @@ def map_grafo(matriz):
             vecinos = {}
             if matriz[i][j] != 0:
                 if (j+1) <= (lenRow-1) and matriz[i][j+1] != 0:
-                    index_vecino = float(f"{i}.{j+1}")
+                    index_vecino = f"{i}.{j+1}"
                     vecinos[index_vecino] = matriz[i][j+1]
 
                 if (j-1) >= 0 and matriz[i][j-1] != 0:
-                    index_vecino = float(f"{i}.{j-1}")
+                    index_vecino = f"{i}.{j-1}"
                     vecinos[index_vecino] = matriz[i][j-1]
                 
                 if(i+1) <= (lenCol-1) and matriz[i+1][j] != 0: 
-                    index_vecino = float(f"{i+1}.{j}")
+                    index_vecino = f"{i+1}.{j}"
                     vecinos[index_vecino] = matriz[i+1][j]
 
                 if(i-1) >= 0 and matriz[i-1][j] != 0: 
-                    index_vecino = float(f"{i-1}.{j}")
+                    index_vecino = f"{i-1}.{j}"
                     vecinos[index_vecino] = matriz[i-1][j]
-                index = float(f"{i}.{j}")
+                index = f"{i}.{j}"
                 grafo[index] = vecinos
     return grafo
 
