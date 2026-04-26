@@ -122,20 +122,20 @@ def construirLaberinto(filas, columnas):
     return MATRIZ
 
 def randomLaberinto():
-    matriz = construirLaberinto(29, 29)
+    matriz = construirLaberinto(94, 94)
     formatMatriz = parsearMatriz(matriz)
-    if(formatMatriz[0][0] == 0 or formatMatriz[26][26] == 0):
-        return randomLaberinto()
+    # if(formatMatriz[0][0] == 0 or formatMatriz[97][97] == 0):
+        # return randomLaberinto()
     return formatMatriz
 
 
 def addCostosLaberinto(laberinto):
-    nCasillasConPeso = 30
+    nCasillasConPeso = 500
     laberintoPesos = copy.deepcopy(laberinto)
     while nCasillasConPeso > 0:
-        costo = random.randint(2,10)
-        i = random.randint(1,25)
-        j = random.randint(1,25)
+        costo =  random.randint(2,10)
+        i = random.randint(1,90)
+        j = random.randint(1,90)
         if laberintoPesos[i][j] == 1:
             laberintoPesos[i][j] = costo
             nCasillasConPeso -= 1
@@ -158,10 +158,14 @@ iconsValsLaberinto = {
 }
 
 def imprimirLaberinto(laberinto):
+    
+    # print("FILAS" ,len(laberinto))
+    # print("COLUMNAS",len(laberinto[0]))
+    
     for i in range(len(laberinto)):
         fila = []
         for j in range(len(laberinto[i])):
-            if i == 26 and j == 26:
+            if i == 90 and j == 90:
                 fila.append('🏁')
             else:
                 fila.append(iconsValsLaberinto[laberinto[i][j]])
@@ -169,6 +173,8 @@ def imprimirLaberinto(laberinto):
     print("")
 
 def imprimirSolucion(laberinto, camino):
+    # print(laberinto)
+        
     laberintoWithSolution = copy.deepcopy(laberinto)
     for i in range(len(camino)): 
         posicion = str(camino[i]).split(".")
@@ -183,5 +189,10 @@ def imprimirSolucion(laberinto, camino):
 
 
 
-# maze = addCostosLaberinto(randomLaberinto())
+# maze = randomLaberinto()
+# for i in range(len(maze)):
+#     print(maze[i])
+#     # print(len(maze[i]))
+    
+# print(maze)
 # imprimirLaberinto(maze)
