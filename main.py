@@ -57,7 +57,8 @@ while True:
         resumen["1"] = {
             "algoritmo" : "DFS PROFUNDIDAD",
             "tiempo" : f_inicio - t_inicio,
-            "n_nodos_solucion" :  len(camino)
+            "n_nodos_solucion" :  len(camino),
+            "visitados" : len(visitados)
         }
         
 
@@ -66,13 +67,14 @@ while True:
     
     elif opcion == "2":
         t_inicio = time.time()
-        camino = bfs_camino_amplitud( grafo=grafo  , inicio = inicio , objetivo = objetivo)
+        camino , visitados  = bfs_camino_amplitud( grafo=grafo  , inicio = inicio , objetivo = objetivo)
         f_inicio = time.time()
 
         resumen["2"] = {
             "algoritmo" : "BFS AMPLITUD",
             "tiempo" : f_inicio - t_inicio,
-            "n_nodos_solucion" :  len(camino)
+            "n_nodos_solucion" :  len(camino),
+            "visitados" : len(visitados)
         }
         
         generar_imagen_con_solucion(laberinto_simple,camino,escala=12, output= "img_soluciones/BFS_SOLUCION.png")  
@@ -81,14 +83,15 @@ while True:
         
     elif opcion == "3":
         t_inicio = time.time()
-        path, cost = ucs_camino(graph=grafo_ucs , start=inicio , goal=objetivo)
+        path, cost , visitados = ucs_camino(graph=grafo_ucs , start=inicio , goal=objetivo)
         f_inicio = time.time()
 
         resumen["3"] = {
             "algoritmo" : "UCS COSTO UNIFORME",
             "tiempo" : f_inicio - t_inicio,
             "n_nodos_solucion" :  len(path),
-            "costo_solucion" : cost
+            "costo_solucion" : cost,
+            "visitados" : len(visitados)
         }
         
         # imprimirSolucion(laberinto_simple,path)
@@ -97,14 +100,15 @@ while True:
         
     elif opcion == "4":
         t_inicio = time.time()
-        camino, costo_acumulado = a_estrella_camino( graph= grafo_estrella , heuristica = heuristica , start=inicio , goal=objetivo)
+        camino, costo_acumulado , visitados = a_estrella_camino( graph= grafo_estrella , heuristica = heuristica , start=inicio , goal=objetivo)
         f_inicio = time.time()
 
         resumen["4"] = {
             "algoritmo" : "A* ESTRELLA HEURISTICA",
             "tiempo" : f_inicio - t_inicio,
             "n_nodos_solucion" :  len(camino),
-            "costo_solucion" : costo_acumulado
+            "costo_solucion" : costo_acumulado,
+            "visitados" : len(visitados)
         }
         
         # imprimirSolucion(laberinto_simple,camino)

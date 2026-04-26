@@ -14,7 +14,7 @@ def bfs_camino(grafo, inicio, objetivo):
             while nodo is not None:
                 camino.append(nodo)
                 nodo = predecesor[nodo]
-            return list(reversed(camino))
+            return list(reversed(camino)) ,  visitados
         
         for vecino in grafo[nodo]:
             if vecino not in visitados:

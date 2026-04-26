@@ -49,6 +49,7 @@
 def a_star(  graph , heuristica  , start, goal):
     nodos_abiertos = {start}
     procede_del_nodo = {}
+    visitados = []
 
     costo_acumulado = {city: float("inf") for city in graph}
     costo_acumulado[start] = 0
@@ -58,6 +59,7 @@ def a_star(  graph , heuristica  , start, goal):
 
     while nodos_abiertos:
         current = min(nodos_abiertos, key=lambda x: f[x])
+        visitados.append(current)
         # print("#### CURRENT ####", current)
         # print("\n")
         if current == goal:
@@ -66,7 +68,7 @@ def a_star(  graph , heuristica  , start, goal):
                 path.append(current)
                 current = procede_del_nodo[current]
             path.append(start)
-            return path[::-1], costo_acumulado[goal]
+            return path[::-1], costo_acumulado[goal] , visitados
         
         nodos_abiertos.remove(current)
         
