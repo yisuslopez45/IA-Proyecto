@@ -25,7 +25,7 @@ def mostrar_menu(RESUMEN):
 
 def imprimir_tabla(resumen):
     # Encabezados
-    headers = ["ID", "Algoritmo", "Tiempo (s)", "Nodos Solución", "Costo Solución", "visitados"]
+    headers = ["ID", "Algoritmo", "Tiempo (s)", "Nodos Solución", "Costo Solución", "visitados" , "promedio_tiempo" , "numero_intentos"]
 
     # Preparar filas
     filas = []
@@ -36,7 +36,9 @@ def imprimir_tabla(resumen):
             f"{v.get('tiempo', 0):.6f}",
             v.get("n_nodos_solucion", "-"),
             v.get("costo_solucion", "-"),
-            v.get("visitados", "-")
+            v.get("visitados", "-"),
+            f"{v.get('promedio_tiempo', 0):.6f}",
+            v.get("numero_intentos", "-")
         ])
 
     # Calcular ancho de columnas

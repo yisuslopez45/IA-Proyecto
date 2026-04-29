@@ -130,7 +130,7 @@ def randomLaberinto():
 
 
 def addCostosLaberinto(laberinto):
-    nCasillasConPeso = 500
+    nCasillasConPeso = 1000
     laberintoPesos = copy.deepcopy(laberinto)
     while nCasillasConPeso > 0:
         costo =  random.randint(2,10)

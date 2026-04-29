@@ -27,6 +27,12 @@ inicio = "0.0"
 objetivo = "90.90"
 
 resumen = {}
+tiempo = {
+    "1" : [],
+    "2" : [],
+    "3" : [],
+    "4" : []
+}
 
 grafo = map_grafo_simple(laberinto_simple)
 grafo_ucs = map_grafo_ucs(laberinto_costos)
@@ -54,11 +60,16 @@ while True:
         camino, visitados, predecesores = bfs_camino_profundidad( grafo=grafo, inicio= inicio , objetivo= objetivo)
         f_inicio = time.time()
         
+        tiempo["1"].append( f_inicio - t_inicio)
+        suma_tiempo = tiempo['1']
+        
         resumen["1"] = {
             "algoritmo" : "DFS PROFUNDIDAD",
             "tiempo" : f_inicio - t_inicio,
             "n_nodos_solucion" :  len(camino),
-            "visitados" : len(visitados)
+            "visitados" : len(visitados),
+            "promedio_tiempo" : sum(suma_tiempo)/len(suma_tiempo),
+            "numero_intentos" : len(suma_tiempo)
         }
         
 
@@ -69,12 +80,17 @@ while True:
         t_inicio = time.time()
         camino , visitados  = bfs_camino_amplitud( grafo=grafo  , inicio = inicio , objetivo = objetivo)
         f_inicio = time.time()
+        
+        tiempo["2"].append( f_inicio - t_inicio)
+        suma_tiempo = tiempo['2']
 
         resumen["2"] = {
             "algoritmo" : "BFS AMPLITUD",
             "tiempo" : f_inicio - t_inicio,
             "n_nodos_solucion" :  len(camino),
-            "visitados" : len(visitados)
+            "visitados" : len(visitados),
+            "promedio_tiempo" : sum(suma_tiempo)/len(suma_tiempo),
+            "numero_intentos" : len(suma_tiempo)
         }
         
         generar_imagen_con_solucion(laberinto_simple,camino,escala=12, output= "img_soluciones/BFS_SOLUCION.png")  
@@ -86,16 +102,21 @@ while True:
         path, cost , visitados = ucs_camino(graph=grafo_ucs , start=inicio , goal=objetivo)
         f_inicio = time.time()
 
+        tiempo["3"].append( f_inicio - t_inicio)
+        suma_tiempo = tiempo['3']
+        
         resumen["3"] = {
             "algoritmo" : "UCS COSTO UNIFORME",
             "tiempo" : f_inicio - t_inicio,
             "n_nodos_solucion" :  len(path),
             "costo_solucion" : cost,
-            "visitados" : len(visitados)
+            "visitados" : len(visitados),
+            "promedio_tiempo" : sum(suma_tiempo)/len(suma_tiempo),
+            "numero_intentos" : len(suma_tiempo)
         }
         
         # imprimirSolucion(laberinto_simple,path)
-        generar_imagen_con_solucion(laberinto_simple,path,escala=12, output="img_soluciones/UCS_SOLUCION.png")  
+        generar_imagen_con_solucion(laberinto_costos,path,escala=12, output="img_soluciones/UCS_SOLUCION.png")  
 
         
     elif opcion == "4":
@@ -103,16 +124,22 @@ while True:
         camino, costo_acumulado , visitados = a_estrella_camino( graph= grafo_estrella , heuristica = heuristica , start=inicio , goal=objetivo)
         f_inicio = time.time()
 
+        tiempo["4"].append( f_inicio - t_inicio)
+        suma_tiempo = tiempo['4']
+        
+        
         resumen["4"] = {
             "algoritmo" : "A* ESTRELLA HEURISTICA",
             "tiempo" : f_inicio - t_inicio,
             "n_nodos_solucion" :  len(camino),
             "costo_solucion" : costo_acumulado,
-            "visitados" : len(visitados)
+            "visitados" : len(visitados),
+            "promedio_tiempo" : sum(suma_tiempo)/len(suma_tiempo),
+            "numero_intentos" : len(suma_tiempo)
         }
         
         # imprimirSolucion(laberinto_simple,camino)
-        generar_imagen_con_solucion(laberinto_simple,camino,escala=12, output="img_soluciones/A*_SOLUCION.png") 
+        generar_imagen_con_solucion(laberinto_costos,camino,escala=12, output="img_soluciones/A*_SOLUCION.png") 
 
         
     elif opcion == "5":
