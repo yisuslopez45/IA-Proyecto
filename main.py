@@ -44,7 +44,7 @@ print("Laberinto Generado Aleatoriamente")
 print("#################################################################################\n")
 
 # imprimirLaberinto(laberinto_simple)
-# imprimirLaberinto(laberinto_costos)
+imprimirLaberinto(laberinto_costos)
 generar_imagen_laberinto(laberinto_costos , escala=20 , output= "img_soluciones/inicial.png")
 
 print("#################################################################################")
@@ -74,7 +74,7 @@ while True:
         
 
         generar_imagen_con_solucion(laberinto_simple,camino,escala=12, output= "img_soluciones/DFS_SOLUCION.png")   
-        # imprimirSolucion(laberinto_simple,camino)
+        imprimirSolucion(laberinto_simple,camino)
     
     elif opcion == "2":
         t_inicio = time.time()
@@ -94,7 +94,7 @@ while True:
         }
         
         generar_imagen_con_solucion(laberinto_simple,camino,escala=12, output= "img_soluciones/BFS_SOLUCION.png")  
-        # imprimirSolucion(laberinto_simple,camino)
+        imprimirSolucion(laberinto_simple,camino)
         # print(camino)
         
     elif opcion == "3":
@@ -115,7 +115,7 @@ while True:
             "numero_intentos" : len(suma_tiempo)
         }
         
-        # imprimirSolucion(laberinto_simple,path)
+        imprimirSolucion(laberinto_costos,path)
         generar_imagen_con_solucion(laberinto_costos,path,escala=12, output="img_soluciones/UCS_SOLUCION.png")  
 
         
@@ -138,7 +138,7 @@ while True:
             "numero_intentos" : len(suma_tiempo)
         }
         
-        # imprimirSolucion(laberinto_simple,camino)
+        imprimirSolucion(laberinto_costos,camino)
         generar_imagen_con_solucion(laberinto_costos,camino,escala=12, output="img_soluciones/A*_SOLUCION.png") 
 
         
