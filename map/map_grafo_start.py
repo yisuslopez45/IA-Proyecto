@@ -1,11 +1,15 @@
-# laberinto = [
-#     [1, 0, 1, 1, 1],
-#     [1, 1, 1, 0, 1],
-#     [1, 0, 1, 0, 1],
-#     [1, 0, 1, 1, 1],
-#     [1, 1, 1, 0, 1],
-# ]
+"""
+Funcion encargada de generar el grafo a partir de una matriz con costos, -
+en donde la key es el nodo 'i,j' y el value es otro diccionario, en donde cada diccionario 
+representa guarda como key el vecino que puede visitar junto con el costo que implica ir hasta el.
 
+Grafo de ejemplo
+{
+    '0.0': {'0.1': 1, '1.0': 1},
+    '0.1': {'0.0': 1, '1.1': 1},
+    ...
+}
+"""
 def map_grafo(matriz):
     lenCol = len(matriz)
     grafo = {}
@@ -32,5 +36,3 @@ def map_grafo(matriz):
                 index = f"{i}.{j}"
                 grafo[index] = vecinos
     return grafo
-
-# print(map_grafo(laberinto))
