@@ -1,6 +1,10 @@
 import random
 import copy
 
+"""
+Funcion que se encarga de agregar costos de manera aleatoria al laberinto,
+se agregan los costos a 1000 casillas del laberinto, los costos van de de 2 a 10.
+"""
 def addCostosLaberinto(laberinto):
     nCasillasConPeso = 1000
     laberintoPesos = copy.deepcopy(laberinto)
@@ -14,6 +18,13 @@ def addCostosLaberinto(laberinto):
     
     return laberintoPesos
 
+"""
+Representacion de los costos del laberinto mediante iconos
+0: muro
+1: camino costo minimo
+2 - 10: costos > 1
+15: respresenta casilla que conforma la solucion
+"""
 iconsValsLaberinto = {
     0 : '🧱',
     1 : '⬛',
@@ -29,6 +40,9 @@ iconsValsLaberinto = {
     15 : '🟩'
 }
 
+"""
+Funcion encargada de imprimir salida inicial del laberinto
+"""
 def imprimirLaberinto(laberinto):
     for i in range(len(laberinto)):
         fila = []
@@ -40,6 +54,10 @@ def imprimirLaberinto(laberinto):
         print(" ".join(fila))
     print("")
 
+"""
+Funcion encargada de pintar solucion en el laberinto, se pasa el laberinto generado
+junto con la lista de nodos que conforman la solucion, se le asigna
+"""
 def imprimirSolucion(laberinto, camino):
     laberintoWithSolution = copy.deepcopy(laberinto)
     for i in range(len(camino)): 
