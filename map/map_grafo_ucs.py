@@ -1,3 +1,16 @@
+"""
+Funcion encargada de generar el grafo a partir de una matriz con costos, -
+en donde la key es el nodo 'i,j' y el value en un arreglo de tuplas, en donde cada tupla 
+representa el vecino junto con el costo que tomaria ir hasta el
+
+Grafo de ejemplo
+{
+    '0.0': [('1.0', 3)],
+    '1.0': [('1.1', 5), ('0.0', 3), ('2.0', 3)],
+    ...
+}
+"""
+
 def map_grafo(matriz):
     lenCol = len(matriz)
     grafo = {}
