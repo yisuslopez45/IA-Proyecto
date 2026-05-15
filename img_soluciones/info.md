@@ -1,0 +1,1 @@
+En este directorio se almacenaran las imagenes de las soluciones de cada algoritmo
