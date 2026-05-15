@@ -9,7 +9,7 @@ from algoritmo.profundidad_algorithm import dfs_camino as bfs_camino_profundidad
 from algoritmo.amplitud_algorithm import bfs_camino as bfs_camino_amplitud
 from algoritmo.ucs_algorithm import uniform_cost_search as ucs_camino
 from algoritmo.a_algorithm import a_star as a_estrella_camino
-from laberinto.generar_laberinto import randomLaberinto , imprimirSolucion , imprimirLaberinto , addCostosLaberinto
+from laberinto.generar_laberinto import  imprimirSolucion , imprimirLaberinto , addCostosLaberinto
 from laberinto.laberinto import laberinto as laberinto_simple
 from utils.generar_img import generar_imagen_laberinto , generar_imagen_con_solucion
 from utils.eliminar_img import limpiar_imagenes_soluciones
@@ -139,7 +139,7 @@ while True:
         }
         
         # imprimirSolucion(laberinto_simple,camino)
-        generar_imagen_con_solucion(laberinto_costos,camino,escala=12, output="img_soluciones/A*_SOLUCION.png") 
+        generar_imagen_con_solucion(laberinto_costos,camino,escala=12, output="img_soluciones/HEURISTICA_SOLUCION.png") 
 
         
     elif opcion == "5":
